@@ -107,14 +107,24 @@
 #ifndef __PLP_MATH_H__
 #define __PLP_MATH_H__
 
-#include "math.h"
+#include <stdint.h>
+#include <math.h>
+
+
+#if defined(PLP_PULP_HAL)
+
 #include "rtos_hal.h"
 
-typedef float float32_t;
-
 #define PLP_MATH_IBEX // previously called zero-riscy
-//#define PLP_MATH_RISCY
 #define PLP_MATH_LOOPUNROLL
+
+#elif defined(PLP_CUSTOM_HAL)
+/* User-provided HAL header (must be supplied at build time) */
+#include "plp_custom_hal.h"
+
+#endif
+
+typedef float float32_t;
 
 /** -------------------------------------------------------
     @struct plp_dot_prod_instance_i32

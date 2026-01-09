@@ -58,7 +58,7 @@ void plp_mult_f32s_xpulpv2(const float32_t * pSrcA,
                  const float32_t * pSrcB,
                  float32_t * pDst,
                  uint32_t blockSize) {
-  for (int i;i<blockSize;i++) {
+  for (int i=0;i<blockSize;i++) {
     pDst[i] = pSrcA[i] * pSrcB[i];
   }
 }
